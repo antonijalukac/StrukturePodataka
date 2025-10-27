@@ -242,7 +242,7 @@ int writeList(Position head) {
 
 	}
 	while (current != NULL) {
-		fprintf("%s %s %d", current->name, current->lastname, current->year);
+		fprintf(fp,"%s %s %d", current->name, current->lastname, current->year);
 		current = current->next;
 }
 	fclose(fp);
