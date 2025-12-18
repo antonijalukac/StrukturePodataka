@@ -1,29 +1,31 @@
 #define _CRT_SECURE_NO_WARNINGS
+#define _FAILED_MEMORY_ALLOCATION NULL
 
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 
-typedef struct dir {
+typedef struct Dir {
 	char name[50];
-	struct dir* child;
-	struct dir* parent;
-	struct dir* sibling;
+	struct Dir* parent;
+	struct Dir* child;
+	struct Dir* sibling;
 
-}dir;
+}Dir;
 
-dir* createDir(char* name, dir* parent);
-int md(dir* current);
-dir* cd_back(dir* current);
-int Dir(dir* current);
+Dir* createDir(char* name, Dir* parent);
+int md(Dir* current);
+Dir* cd_dir(Dir* curent);
+Dir* cd_back(Dir* current);
+int dir(Dir* current);
 
 int main() {
 	int choice = 0;
-	dir* root = createDir("C:", NULL);
-	dir* current = root;
+	Dir* root = createDir("C:", NULL);
+	Dir* current = root;
 
 	while (choice != 5) {
-		printf("\nTrenutni direktorij: %s\n", current->name);
+		printf("Trenutni direktorij:%s\n", current->name);
 		printf("1 - md\n");
 		printf("2 - cd dir\n");
 		printf("3 - cd..\n");
@@ -36,7 +38,7 @@ int main() {
 			md(current);
 		}
 		else if (choice == 2) {
-			current = cd(current);
+			current = cd_dir(current);
 		}
 		else if (choice == 3) {
 			current = cd_back(current);
@@ -54,48 +56,67 @@ int main() {
 
 	return 0;
 }
+Dir* createDir(char* name, Dir* parent) {
+	Dir* newDir = (Dir*)malloc(sizeof(Dir));
+	if (newDir == NULL) return NULL;
 
-dir* createDir(char* name, dir* parent) {
-	dir* newDir = malloc(sizeof(dir));
 	strcpy(newDir->name, name);
+	newDir->parent = parent;
 	newDir->child = NULL;
 	newDir->sibling = NULL;
-	newDir->parent = parent;
 
 	return newDir;
 
 }
 
-int md(dir* current) {
+int md(Dir* current) {
 	char name[50];
-	dir* temp;
+	Dir* temp;
 
-	printf("Ime direktorija:\n");
+	printf("ime direktorija:\n");
+	scanf("%s", name);
+
+	if (current->child == NULL) {
+		current->child = createDir(name, current);
+		return current->child != NULL;
+	}
+	temp = current->child;
+	while (temp->sibling != NULL)
+		temp = temp->sibling;
+
+
+	temp->sibling = createDir(name, current);
+	return temp->sibling != NULL;
+
+}
+
+Dir* cd_dir(Dir* current) {
+	char name[50];
+	Dir* temp;
+
+	printf("ime direktorija:\n");
 	scanf("%s", name);
 
 	temp = current->child;
 
-	if (temp == NULL) {
-		current->child = createDir(name, current);
-		return 1;
-	}
-	while (temp->sibling != NULL) 
+	while (temp != NULL) {
+		if (strcmp(temp->name, name) == 0) {
+			return temp;
+		}
 		temp = temp->sibling;
-
-
-	temp->sibling = createDir(name, current);	
-	return 1;
-	
-}
-
-dir* cd_back(dir* current) {
-	if (current->parent != NULL)
-		return current->parent;
+	}
+	printf("direktorij ne postoji.\n");
 	return current;
+
 }
 
-int Dir(dir* current) {
-	dir* temp = current->child;
+Dir* cd_back(Dir* current) {
+	if (current->parent != NULL) return current->parent;
+	return current;
+
+}
+int dir(Dir* current) {
+	Dir* temp = current->child;
 
 	if (temp == NULL) {
 		printf("direktorij je prazan.\n");
@@ -107,4 +128,3 @@ int Dir(dir* current) {
 	}
 	return 1;
 }
-
