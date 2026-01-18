@@ -6,15 +6,15 @@
 typedef struct City {
     char name[100];
     int population;
-    struct City* next; // Vezani pokazivač na sljedeći grad
+    struct City* next; 
 } City;
 
 // Struktura za državu
 typedef struct Country {
     char name[100];
     City* cities;  // Sortirana lista gradova prema broju stanovnika i nazivu
-    struct Country* left;   // Pokazivač na lijevog sina u BST
-    struct Country* right;  // Pokazivač na desnog sina u BST
+    struct Country* left;   
+    struct Country* right;  
 } Country;
 
 // Funkcija za umetanje grada u sortiranu vezanu listu gradova
@@ -78,7 +78,7 @@ void print_countries(Country* countries) {
     }
 
     print_countries(countries->left);
-    printf("Country: %s\n", countries->name);
+    printf("Drzava: %s\n", countries->name);
     print_cities(countries->cities);
     printf("\n");
     print_countries(countries->right);
@@ -98,7 +98,7 @@ Country* load_data(Country* countries) {
 
         FILE* cities_file_ptr = fopen(cities_file, "r");
         if (cities_file_ptr == NULL) {
-            printf("Error opening the cities file!\n");
+            printf("greska u otvaranju datoteke!\n");
             continue;
         }
 
@@ -141,7 +141,7 @@ void search_cities_by_population(Country* countries, const char* country_name, i
         return;
     }
 
-    printf("Cities in %s with population greater than %d:\n", country_name, min_population);
+    printf("gradovi u %s sa brojem stanovnika vecim od %d:\n", country_name, min_population);
     City* current_city = current_country->cities;
     while (current_city != NULL) {
         if (current_city->population > min_population) {
@@ -151,7 +151,7 @@ void search_cities_by_population(Country* countries, const char* country_name, i
     }
 }
 
-// Glavna funkcija
+
 int main() {
     Country* countries = NULL;
 
@@ -164,9 +164,9 @@ int main() {
     // Pretraga gradova
     char country_name[100];
     int min_population;
-    printf("Enter the country name to search for cities: ");
+    printf("unesite ime drzave: ");
     scanf("%s", country_name);
-    printf("Enter the minimum population: ");
+    printf("unesite minimalan broj stanovnika: ");
     scanf("%d", &min_population);
 
     search_cities_by_population(countries, country_name, min_population);
