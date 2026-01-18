@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\zad4\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{077DD9AF-7A26-4E8C-AAC8-495B35147821}|zad4\\zad4.vcxproj|C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\zad4\\zad4\\zad4.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{077DD9AF-7A26-4E8C-AAC8-495B35147821}|zad4\\zad4.vcxproj|solutionrelative:zad4\\zad4.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{077DD9AF-7A26-4E8C-AAC8-495B35147821}|zad4\\zad4.vcxproj|C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\zad4\\zad4\\poly2.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{077DD9AF-7A26-4E8C-AAC8-495B35147821}|zad4\\zad4.vcxproj|solutionrelative:zad4\\poly2.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{077DD9AF-7A26-4E8C-AAC8-495B35147821}|zad4\\zad4.vcxproj|C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\zad4\\zad4\\poly1.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{077DD9AF-7A26-4E8C-AAC8-495B35147821}|zad4\\zad4.vcxproj|solutionrelative:zad4\\poly1.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "poly2.txt",
+              "DocumentMoniker": "C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\zad4\\zad4\\poly2.txt",
+              "RelativeDocumentMoniker": "zad4\\poly2.txt",
+              "ToolTip": "C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\zad4\\zad4\\poly2.txt",
+              "RelativeToolTip": "zad4\\poly2.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-11-30T14:43:56.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "poly1.txt",
+              "DocumentMoniker": "C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\zad4\\zad4\\poly1.txt",
+              "RelativeDocumentMoniker": "zad4\\poly1.txt",
+              "ToolTip": "C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\zad4\\zad4\\poly1.txt",
+              "RelativeToolTip": "zad4\\poly1.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-11-30T14:41:57.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "zad4.c",
+              "DocumentMoniker": "C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\zad4\\zad4\\zad4.c",
+              "RelativeDocumentMoniker": "zad4\\zad4.c",
+              "ToolTip": "C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\zad4\\zad4\\zad4.c*",
+              "RelativeToolTip": "zad4\\zad4.c*",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAAAH0AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-11-28T17:18:29.97Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
