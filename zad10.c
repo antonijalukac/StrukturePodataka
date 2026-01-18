@@ -83,7 +83,7 @@ Country* insert_country(Country* countries, const char* name) {
 void print_cities(City* cities) {
     if (cities != NULL) {
         print_cities(cities->left);
-        printf("%s, Population: %d\n", cities->name, cities->population);
+        printf("%s, Broj stanovnika: %d\n", cities->name, cities->population);
         print_cities(cities->right);
     }
 }
@@ -91,7 +91,7 @@ void print_cities(City* cities) {
 // Funkcija za ispis svih država i njihovih gradova
 void print_countries(Country* countries) {
     while (countries != NULL) {
-        printf("Country: %s\n", countries->name);
+        printf("drzava: %s\n", countries->name);
         print_cities(countries->cities);
         printf("\n");
         countries = countries->next;
@@ -102,7 +102,7 @@ void print_countries(Country* countries) {
 Country* load_data(Country* countries) {
     FILE* file = fopen("countries.txt", "r");
     if (file == NULL) {
-        printf("Error opening the countries file!\n");
+        printf("greska u otvaranju datoteke!\n");
         return countries;
     }
 
@@ -112,7 +112,7 @@ Country* load_data(Country* countries) {
 
         FILE* cities_file_ptr = fopen(cities_file, "r");
         if (cities_file_ptr == NULL) {
-            printf("Error opening the cities file!\n");
+            printf("greska u otvaranju datoteke!\n");
             continue;
         }
 
@@ -182,9 +182,9 @@ int main() {
     // Pretraga gradova
     char country_name[100];
     int min_population;
-    printf("Enter the country name to search for cities: ");
+    printf("unesite ime drzave: ");
     scanf("%s", country_name);
-    printf("Enter the minimum population: ");
+    printf("unesite minimalan broj stanovnika: ");
     scanf("%d", &min_population);
 
     search_cities_by_population(countries, country_name, min_population);
