@@ -1,6 +1,4 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
-
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -8,94 +6,82 @@
 typedef struct City {
     char name[100];
     int population;
-    struct City* left;
-    struct City* right;
+    struct City* next; // Vezani pokazivač na sljedeći grad
 } City;
 
 // Struktura za državu
 typedef struct Country {
     char name[100];
-    City* cities;  // BST gradova
-    struct Country* next;  // Pokazivač na sljedeću državu u listi
+    City* cities;  // Sortirana lista gradova prema broju stanovnika i nazivu
+    struct Country* left;   // Pokazivač na lijevog sina u BST
+    struct Country* right;  // Pokazivač na desnog sina u BST
 } Country;
 
-// Funkcija za umetanje grada u BST (sortirano prema broju stanovnika, zatim nazivu)
+// Funkcija za umetanje grada u sortiranu vezanu listu gradova
 City* insert_city(City* cities, const char* name, int population) {
     City* new_city = (City*)malloc(sizeof(City));
     strcpy(new_city->name, name);
     new_city->population = population;
-    new_city->left = new_city->right = NULL;
+    new_city->next = NULL;
 
-    // Umetanje grada u BST
-    if (cities == NULL) {
+    // Umetanje u sortiranu listu gradova
+    if (cities == NULL || cities->population > population ||
+        (cities->population == population && strcmp(cities->name, name) > 0)) {
+        new_city->next = cities;
         return new_city;
     }
 
     City* current = cities;
-    City* parent = NULL;
-    while (current != NULL) {
-        parent = current;
-        if (population < current->population ||
-            (population == current->population && strcmp(name, current->name) < 0)) {
-            current = current->left;
-        }
-        else {
-            current = current->right;
-        }
+    while (current->next != NULL && (current->next->population < population ||
+        (current->next->population == population && strcmp(current->next->name, name) < 0))) {
+        current = current->next;
     }
 
-    if (population < parent->population ||
-        (population == parent->population && strcmp(name, parent->name) < 0)) {
-        parent->left = new_city;
-    }
-    else {
-        parent->right = new_city;
-    }
+    new_city->next = current->next;
+    current->next = new_city;
 
     return cities;
 }
 
-// Funkcija za umetanje države u sortiranu vezanu listu
+// Funkcija za umetanje države u binarno stablo
 Country* insert_country(Country* countries, const char* name) {
-    Country* new_country = (Country*)malloc(sizeof(Country));
-    strcpy(new_country->name, name);
-    new_country->cities = NULL;
-    new_country->next = NULL;
-
-    // Umetanje države u sortiranu vezanu listu
-    if (countries == NULL || strcmp(countries->name, name) > 0) {
-        new_country->next = countries;
-        countries = new_country;
+    if (countries == NULL) {
+        Country* new_country = (Country*)malloc(sizeof(Country));
+        strcpy(new_country->name, name);
+        new_country->cities = NULL;
+        new_country->left = new_country->right = NULL;
+        return new_country;
     }
-    else {
-        Country* current = countries;
-        while (current->next != NULL && strcmp(current->next->name, name) < 0) {
-            current = current->next;
-        }
-        new_country->next = current->next;
-        current->next = new_country;
+
+    if (strcmp(name, countries->name) < 0) {
+        countries->left = insert_country(countries->left, name);
+    }
+    else if (strcmp(name, countries->name) > 0) {
+        countries->right = insert_country(countries->right, name);
     }
 
     return countries;
 }
 
-// Funkcija za ispis gradova u BST
+// Funkcija za ispis gradova u sortiranoj listi
 void print_cities(City* cities) {
-    if (cities != NULL) {
-        print_cities(cities->left);
+    while (cities != NULL) {
         printf("%s, Population: %d\n", cities->name, cities->population);
-        print_cities(cities->right);
+        cities = cities->next;
     }
 }
 
 // Funkcija za ispis svih država i njihovih gradova
 void print_countries(Country* countries) {
-    while (countries != NULL) {
-        printf("Country: %s\n", countries->name);
-        print_cities(countries->cities);
-        printf("\n");
-        countries = countries->next;
+    if (countries == NULL) {
+        return;
     }
+
+    print_countries(countries->left);
+    printf("Country: %s\n", countries->name);
+    print_cities(countries->cities);
+    printf("\n");
+    print_countries(countries->right);
 }
 
 // Funkcija za učitavanje podataka iz datoteka
@@ -120,7 +106,7 @@ Country* load_data(Country* countries) {
         int population;
         Country* current_country = countries;
         while (current_country != NULL && strcmp(current_country->name, country_name) != 0) {
-            current_country = current_country->next;
+            current_country = current_country->left;
         }
 
         if (current_country != NULL) {
@@ -136,13 +122,18 @@ Country* load_data(Country* countries) {
     return countries;
 }
 
-// Funkcija za pretragu gradova u državi sa više stanovnika od unesenog broja
+// Funkcija za pretragu gradova u državi sa većim brojem stanovnika od unesenog broja
 void search_cities_by_population(Country* countries, const char* country_name, int min_population) {
     Country* current_country = countries;
 
-    // Pronaći državu
+    // Pronaći državu u BST-u
     while (current_country != NULL && strcmp(current_country->name, country_name) != 0) {
-        current_country = current_country->next;
+        if (strcmp(country_name, current_country->name) < 0) {
+            current_country = current_country->left;
+        }
+        else {
+            current_country = current_country->right;
+        }
     }
 
     if (current_country == NULL) {
@@ -152,24 +143,15 @@ void search_cities_by_population(Country* countries, const char* country_name, i
 
     printf("Cities in %s with population greater than %d:\n", country_name, min_population);
     City* current_city = current_country->cities;
-    // Pretraga gradova u BST
     while (current_city != NULL) {
         if (current_city->population > min_population) {
             printf("%s, Population: %d\n", current_city->name, current_city->population);
         }
-        if (current_city->left != NULL && current_city->population > min_population) {
-            current_city = current_city->left;
-        }
-        else if (current_city->right != NULL && current_city->population > min_population) {
-            current_city = current_city->right;
-        }
-        else {
-            break;
-        }
+        current_city = current_city->next;
     }
 }
 
-
+// Glavna funkcija
 int main() {
     Country* countries = NULL;
 
