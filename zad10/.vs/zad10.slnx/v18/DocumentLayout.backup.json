@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\zad10\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E054B810-3955-450D-BE84-C8046B1162AB}|zad10\\zad10.vcxproj|C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\zad10\\zad10\\zad10.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E054B810-3955-450D-BE84-C8046B1162AB}|zad10\\zad10.vcxproj|solutionrelative:zad10\\zad10.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "zad10.c",
+              "DocumentMoniker": "C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\zad10\\zad10\\zad10.c",
+              "RelativeDocumentMoniker": "zad10\\zad10.c",
+              "ToolTip": "C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\zad10\\zad10\\zad10.c*",
+              "RelativeToolTip": "zad10\\zad10.c*",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAAAH8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-01-11T18:29:34.363Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

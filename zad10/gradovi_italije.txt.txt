@@ -1,0 +1,5 @@
+Roma 2500000
+Milano 1500000
+Napulj 1000000
+Torino 900000
+Palermo 700000
