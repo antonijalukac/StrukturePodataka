@@ -1,0 +1,4 @@
+Inorder nakon insert-a:
+19 28 37 52 74 76 78 81 82 83 
+Inorder nakon replace-a:
+0 19 573 474 400 324 163 0 81 241 
