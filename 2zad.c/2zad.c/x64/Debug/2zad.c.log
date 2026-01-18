@@ -1,0 +1,5 @@
+﻿  2zad.c
+C:\Users\aluka\OneDrive\Radna površina\strukt\.git\2zad.c\2zad.c\2zad.c(57,31): warning C4047: '!=': 'int' differs in levels of indirection from 'void *'
+C:\Users\aluka\OneDrive\Radna površina\strukt\.git\2zad.c\2zad.c\2zad.c(72,2): warning C4013: 'strcpy' undefined; assuming extern returning int
+C:\Users\aluka\OneDrive\Radna površina\strukt\.git\2zad.c\2zad.c\2zad.c(130,7): warning C4013: 'strcmp' undefined; assuming extern returning int
+  2zad.c.vcxproj -> C:\Users\aluka\OneDrive\Radna površina\strukt\.git\2zad.c\x64\Debug\2zad.c.exe

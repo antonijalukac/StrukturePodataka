@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\.git\\2zad.c\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C63B74F8-FB5F-40D2-B925-9EC4C0ADE8A1}|2zad.c\\2zad.c.vcxproj|C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\.git\\2zad.c\\2zad.c\\2zad.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C63B74F8-FB5F-40D2-B925-9EC4C0ADE8A1}|2zad.c\\2zad.c.vcxproj|solutionrelative:2zad.c\\2zad.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "2zad.c",
+              "DocumentMoniker": "C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\.git\\2zad.c\\2zad.c\\2zad.c",
+              "RelativeDocumentMoniker": "2zad.c\\2zad.c",
+              "ToolTip": "C:\\Users\\aluka\\OneDrive\\Radna povr\u0161ina\\strukt\\.git\\2zad.c\\2zad.c\\2zad.c*",
+              "RelativeToolTip": "2zad.c\\2zad.c*",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAvwC4AAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-10-18T08:42:39.132Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
