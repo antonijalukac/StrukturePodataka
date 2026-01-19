@@ -1,0 +1,5 @@
+Istanbul 15520000
+Ankara 5500000
+Izmir 4000000
+Antalya 2500000
+Bursa 2000000

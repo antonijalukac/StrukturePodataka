@@ -1,0 +1,5 @@
+Rim 2872800
+Milano 1378689
+Napulj 975000
+Torino 870000
+Venecija 260000

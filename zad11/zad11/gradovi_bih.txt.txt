@@ -1,0 +1,5 @@
+Sarajevo 275000
+Banja Luka 200000
+Mostar 113000
+Tuzla 120000
+Zenica 110000

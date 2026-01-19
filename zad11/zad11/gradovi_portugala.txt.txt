@@ -1,0 +1,5 @@
+Lisabona 5000000
+Porto 2300000
+Amadora 175000
+Braga 180000
+Coimbra 143000
