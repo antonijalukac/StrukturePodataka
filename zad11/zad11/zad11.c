@@ -44,13 +44,13 @@ City* insert_city(City* cities, const char* name, int population) {
         return new_city;
     }
 
-    City* current = cities;
-    City* parent = NULL;
+    City* current = cities; //za kretanje kroz stablo
+    City* parent = NULL; //pamti roditelja cvora gdje cemo umetnuti novi grad
     while (current != NULL) {
         parent = current;
         if (population < current->population ||
             (population == current->population && strcmp(name, current->name) < 0)) {
-            current = current->left;
+            current = current->left; //idemo u lijevo podstablo
         }
         else {
             current = current->right;
@@ -131,8 +131,8 @@ void print_cities(City* cities) {
 
 // Funkcija za ispis svih država i njihovih gradova
 void print_hash_table(Country* hash_table[]) {
-    for (int i = 0; i < TABLE_SIZE; i++) {
-        Country* current_country = hash_table[i];
+    for (int i = 0; i < TABLE_SIZE; i++) {  //prolazi kroz hash tablicu
+        Country* current_country = hash_table[i]; //prolazak kroz vezanu listu
         while (current_country != NULL) {
             printf("Country: %s\n", current_country->name);
             print_cities(current_country->cities);
